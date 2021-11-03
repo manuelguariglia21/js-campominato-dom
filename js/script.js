@@ -68,23 +68,24 @@ playBtn.addEventListener("click", function(){
     }
 
     const innerNumb = sq.innerText;
+    console.log(innerNumb);
     
     //sfondo blu al click
-    clickBlue(sq);
+    sq.addEventListener("click", function(){
+      if(bombs.includes(parseInt(innerNumb))){
+        sq.classList.add('mg-red');
+      }
+      else{
+        sq.classList.add('mg-blue');
+      }
+
+    });
 
       }
 
  });
 
-
-
- //funzione colore
- function clickBlue(div){
-  div.addEventListener("click", function(){
-    div.classList.add('mg-blue');
-  });
- }
-
+ 
 //funzione randomInt
 function randomInt(min, max){
   return Math.floor(Math.random() * max) + min;
