@@ -48,47 +48,26 @@ nav span{
 
 main{
   background-color: #70ffd6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: calc(100vh - 140px);
 }
 
-.mg-start{
+.mg-selectLevel{
   text-align: center;
   font-weight: bold;
-  display: none;
-}
-
-.mg-text-play{
   height: calc(100vh - 140px);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.mg-grid{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 140px);
 }
 
 /* sq */
 .mg-sq{
-  cursor: pointer;
-}
-
-/* grid */
-
-.mg-easy, .mg-crazy, .mg-hard{
-  width: 400px;
-  height: 400px;
-  display: none;
-}
-
-/* crazy */
-
-.mg-crazy-sq{
   width: calc(100% / 7);
   height: calc(100% / 7);
+  cursor: pointer;
   border: 1px solid white;
   float: left;
   display: flex;
@@ -97,32 +76,13 @@ main{
   color:white;
 }
 
-/* easy */
+/* grid */
 
-
-
-.mg-easy-sq{
-  width: calc(100% / 10);
-  height: calc(100% / 10);
-  border: 1px solid white;
-  float: left;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-/* hard */
-
-.mg-hard-sq{
-  width: calc(100% / 9);
-  height: calc(100% / 9);
-  border: 1px solid white;
-  float: left;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+.mg-grid{
+  width: 400px;
+  height: 400px;
+  display: block;
+  background-color: green;
 }
 
 /* color */
