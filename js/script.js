@@ -1,4 +1,3 @@
-
 //variabili
 
 const mainBox = document.getElementById('container');
@@ -8,7 +7,7 @@ const start = document.querySelector('.mg-start');
 let nSq = null;
 let nSd = null;
 
-const bombs = [];
+let bombs = [];
 const N_BOMBS = 16;
 
 let check = false;
@@ -58,21 +57,19 @@ playBtn.addEventListener("click", function(){
     sq.innerHTML = i;
 
     //genera bombe
+    bombs =[];
     while(bombs.length < N_BOMBS){
       let bomb = randomInt(1, nSq);
-      console.log('Numero estratto: ', bomb);
       if(!(bombs.includes(bomb))){
         bombs.push(bomb);
-        console.log('Array bombe:', bombs);
       }
     }
-
-    const innerNumb = sq.innerText;
-    console.log(innerNumb);
+    console.log('Bomba aggiunta!!!', bombs);
+    const innerNumb = parseInt(sq.innerText);
     
     //sfondo blu al click
     sq.addEventListener("click", function(){
-      if(bombs.includes(parseInt(innerNumb))){
+      if(bombs.includes(innerNumb)){
         sq.classList.add('mg-red');
       }
       else{
