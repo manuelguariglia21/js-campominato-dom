@@ -10,11 +10,8 @@ let nSd = null;
 let bombs = [];
 const N_BOMBS = 16;
 
-let check = false;
-let easyCheck = false;
-let hardCheck = false;
-
-
+const attempsList = [];
+let attemps = 0;
 
 //Click Play
 playBtn.addEventListener("click", function(){ 
@@ -74,6 +71,12 @@ playBtn.addEventListener("click", function(){
       }
       else{
         sq.classList.add('mg-blue');
+        if(!(attempsList.includes(innerNumb))){
+          attempsList.push(innerNumb);
+          attemps++;
+          console.log(attemps);
+        }
+
       }
 
     });
