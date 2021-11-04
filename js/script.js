@@ -1,20 +1,23 @@
-//variabili
 
-const mainBox = document.getElementById('container');
-const level = document.getElementById('mg-select');
-const playBtn = document.getElementById('playBtn');
-const start = document.querySelector('.mg-start');
-let nSq = null;
-let nSd = null;
 
-let bombs = [];
-const N_BOMBS = 16;
-
-const attempsList = [];
-let attemps = 0;
 
 //Click Play
 playBtn.addEventListener("click", function(){ 
+
+  //variabili
+  const mainBox = document.getElementById('container');
+  const level = document.getElementById('mg-select');
+  const playBtn = document.getElementById('playBtn');
+  const start = document.querySelector('.mg-start');
+  
+  let nSq = null;
+  let nSd = null;
+  
+  let bombs = [];
+  const N_BOMBS = 16;
+  
+  const attempsList = [];
+  let attemps = 0;
 
   mainBox.innerHTML = '';
   const grid = document.createElement('div');
@@ -63,25 +66,42 @@ playBtn.addEventListener("click", function(){
     }
     console.log('Bomba aggiunta!!!', bombs);
     const innerNumb = parseInt(sq.innerText);
+
+    const MAX_ATTEMPS = nSq - N_BOMBS;
     
     //sfondo blu al click
     sq.addEventListener("click", function(){
       if(bombs.includes(innerNumb)){
-        sq.classList.add('mg-red');
+        endGame();
       }
       else{
         sq.classList.add('mg-blue');
         if(!(attempsList.includes(innerNumb))){
-          attempsList.push(innerNumb);
           attemps++;
+          attempsList.push(innerNumb);
           console.log(attemps);
         }
 
       }
 
+      if(attemps === MAX_ATTEMPS){
+        endGame();
+      }
+
     });
 
-      }
+  }
+
+  //function endgame
+  function endGame(){
+    const sqAll = document.getElementsByClassName('mg-sq');
+    for(let i = 0; i < sqAll.length; i++){
+        if(bombs.includes(i + 1)){
+        sqAll[i].classList.add('mg-red');
+        }
+      sqAll[i].style.pointerEvents = 'none';
+    }
+  }
 
  });
 
@@ -90,3 +110,4 @@ playBtn.addEventListener("click", function(){
 function randomInt(min, max){
   return Math.floor(Math.random() * max) + min;
 }
+
